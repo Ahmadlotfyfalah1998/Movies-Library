@@ -4,22 +4,18 @@
 **Author Name**: ahmad falah
 
 ## WRRC
-![Alt text](%D9%A2%D9%A0%D9%A2%D9%A3%D9%A0%D9%A3%D9%A2%D9%A1_%D9%A0%D9%A8%D9%A4%D9%A7%D9%A3%D9%A0.jpg)
+![Alt text](%D9%A2%D9%A0%D9%A2%D9%A3%D9%A0%D9%A3%D9%A2%D9%A5_%D9%A1%D9%A5%D9%A0%D9%A1%D9%A3%D9%A9.jpg)
 
 ## Overview
-I try to get data from API and send it to the user
+I try to create data base and add data on it then get these data
 ## Getting Started
-1. npm init -y
-2. creat index.js file
-3. npm install express
-4. install (nodemon,corse,dotenv,axios)
+1. npm install body-parser
+2. npm install pg
+3. create data base
+4. create table 
+5. link the table with data base
 
 ## Project Features
-it have 4 pages 
-1. trend movies    will show you movies list and information       (/trending)
-
-2. searching page    you can search about name    (/search)
-
-3. certification page  will show you movies information         (/certification)
-
-4. changes page        will show list of changes   (/movie)
+it have data base and two route to set data and get data to and from data base 
+1. /addMovies ; and its used to add movie name and comment this movie
+2. /getMovies ; you can use it to requst all data in this data base 
