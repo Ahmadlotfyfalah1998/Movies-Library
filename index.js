@@ -31,9 +31,9 @@ app.use(bodyParser.json())
 
 app.post('/addMovies',addMoviesHandler)
 app.get('/getMovies',getMovirsHandler)
-
-
-
+app.put('/updateMovie/:id',updatehandler)
+app.delete('/deleteMovie/:id',deleteHandler)
+app.get('/getMovie/:id',getMovieByIdHandler)
 
 
 
@@ -46,7 +46,7 @@ app.get('/getMovies',getMovirsHandler)
 function addMoviesHandler(req,res){
 console.log(req.body)
 let {movie,comment}=req.body;
-let sql =`INSERT INTO moviess (movie,comment)
+let sql =`INSERT INTO movies (movie,comment)
 VALUES ($1,$2);`
 let values =[movie,comment];
 client.query(sql,values).then(
@@ -60,7 +60,7 @@ res.status(201).send("successful")
 }
 
 function getMovirsHandler (req,res){
-let sql =`SELECT * FROM moviess;`
+let sql =`SELECT * FROM movies;`
 client.query(sql).then((result)=>{
    res.json(result.rows)
 })
@@ -68,6 +68,76 @@ client.query(sql).then((result)=>{
 
 
 }
+
+
+function updatehandler (req,res){
+   let id = req.params.id
+let {comment}=req.body;
+let sql= `UPDATE movies
+SET  comment = $1 
+WHERE id=$2 RETURNING *;`
+let values = [comment,id]
+client.query(sql,values)
+.then(result=>{     
+console.log(result.rows)
+res.json(result.rows)
+
+
+})
+.catch()
+
+}
+
+
+
+function deleteHandler (req,res){
+   let id = req.params.id
+   let sql=`DELETE FROM movies WHERE id=$1 RETURNING *;`
+  
+  let values =[id]
+  
+     client.query(sql,values)
+     .then((result)=>{
+        res.json(result.rows)
+        console.log(result.rows)
+     })
+     .catch()
+
+
+ }
+
+
+ function getMovieByIdHandler(req,res){
+
+  let id = req.params.id
+ let sql=`SELECT * FROM movies WHERE id=$1`
+
+let values =[id]
+
+   client.query(sql,values)
+   .then((result)=>{
+      res.json(result.rows)
+      console.log(result.rows)
+   })
+   .catch()
+   
+
+
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 client.connect().then(()=>{
