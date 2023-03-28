@@ -72,11 +72,11 @@ client.query(sql).then((result)=>{
 
 function updatehandler (req,res){
    let id = req.params.id
-let {comment}=req.body;
+let {movie,comment}=req.body;
 let sql= `UPDATE movies
-SET  comment = $1 
-WHERE id=$2 RETURNING *;`
-let values = [comment,id]
+SET movie=$1, comment = $2
+WHERE id=$3 RETURNING *;`
+let values = [movie,comment,id]
 client.query(sql,values)
 .then(result=>{     
 console.log(result.rows)
