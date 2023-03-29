@@ -10,9 +10,7 @@ const { Client } = require('pg')
 
 
 //const { default: axios } = require('axios')
-let password=process.env.password
-let user = process.env.user
-let url=`postgres://${user}:${password}@localhost:5432/lab13`;
+let url=process.env.URL
 const client = new Client(url)
 const PORT =process.env.PORT
 const app = express()
