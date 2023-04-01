@@ -54,7 +54,7 @@ app.get('/getMovie/:id',getMovieByIdHandler)
 
 
  function homePageHandeler(req,res){
-    //let arr=[]
+    ////let arr=[]
     //let newData=new JsonData(data.title,data.poster_path,data.overview)
     //arr.push(newData)
  res.send("home page")
