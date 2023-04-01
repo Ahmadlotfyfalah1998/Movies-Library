@@ -1,6 +1,6 @@
 'use strict'
 const express=require('express')
-const dataJson =require('./data.json')
+//const dataJson =require('./data.json')
 const axios = require ('axios')
 const cors =require('cors')
 require('dotenv').config()
@@ -54,10 +54,10 @@ app.get('/getMovie/:id',getMovieByIdHandler)
 
 
  function homePageHandeler(req,res){
-    let arr=[]
-    let newData=new JsonData(data.title,data.poster_path,data.overview)
-    arr.push(newData)
- res.send(arr)
+    //let arr=[]
+    //let newData=new JsonData(data.title,data.poster_path,data.overview)
+    //arr.push(newData)
+ res.send("home page")
 
  }
 
