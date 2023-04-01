@@ -1,6 +1,6 @@
 'use strict'
 const express=require('express')
-const dataJson =require('./data.json')
+//const dataJson =require('./data.json')
 const axios = require ('axios')
 const cors =require('cors')
 require('dotenv').config()
