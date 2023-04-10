@@ -67,16 +67,6 @@ res.send("Welcome to Favorite Page")
 
  }
 
-
-
-
-
-
-
-
-
-
-
  function JsonData(title,poster_path,overview){
  this.title=title
  this.poster_path=poster_path
@@ -171,7 +161,7 @@ function searchHandeler(req,res){
 function addMoviesHandler(req,res){
 console.log(req.body)
 let {movie,comment}=req.body;
-let sql =`INSERT INTO movies (movie,comment)
+let sql =`INSERT INTO movies (movie,comment,poster_path,id)
 VALUES ($1,$2,$3,$4);`
 let values =[movie,comment,poster_path,id];
 client.query(sql,values).then(
