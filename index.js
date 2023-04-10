@@ -172,10 +172,10 @@ function addMoviesHandler(req,res){
 console.log(req.body)
 let {movie,comment}=req.body;
 let sql =`INSERT INTO movies (movie,comment)
-VALUES ($1,$2);`
-let values =[movie,comment];
+VALUES ($1,$2,$3,$4);`
+let values =[movie,comment,poster_path,id];
 client.query(sql,values).then(
-res.status(201).send("successful")
+res.status(201).json(data.rows)
 
 
  ).catch()
