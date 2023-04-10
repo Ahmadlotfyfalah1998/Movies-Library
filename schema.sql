@@ -1,7 +1,8 @@
 CREATE TABLE movies (
     movie VARCHAR(255),
     comment VARCHAR(255),
-   id SERIAL PRIMARY KEY 
+   id VARCHAR(255),
+   poster_path VARCHAR(255)
 );
 
 -- ALTER TABLE moviess
