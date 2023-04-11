@@ -160,10 +160,10 @@ function searchHandeler(req,res){
 
 function addMoviesHandler(req,res){
 console.log(req.body)
-let {title,comment}=req.body;
-let sql =`INSERT INTO movies (title,comment)
+let {movie,comment}=req.body;
+let sql =`INSERT INTO movies (movie,comment)
 VALUES ($1,$2);`
-let values =[title,comment];
+let values =[movie,comment];
 client.query(sql,values).then(
 res.status(201).json(data.rows)
 
